@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PanelController : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class PanelController : MonoBehaviour
     public GameObject panelCredits;
    // public GameObject panelConfiguration;
     public GameObject panelInstructions;
+
+    public void IniciarJuego()
+    {
+        SceneManager.LoadSceneAsync("Intro");
+    }
 
     public void TogglePanelCredits()
     {
