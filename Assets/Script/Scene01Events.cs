@@ -11,6 +11,8 @@ public class Scene01Events : MonoBehaviour
     public GameObject BGChululuInvocacion;
     public GameObject charMCDark;
     public GameObject charMC;
+    public GameObject charMC_Berrinche;
+    public GameObject cristian;
     public GameObject chululu;
     public GameObject textBoxUI;
 
@@ -123,7 +125,7 @@ public class Scene01Events : MonoBehaviour
         charMCDark.SetActive(false);
         charMC.SetActive(true);
         charName.GetComponent<TMPro.TMP_Text>().text = "Juanito Chafa";
-        textToSpeak = "Nunca podré salir con ella… Miranda que es perfecta";
+        textToSpeak = "Nunca podré salir con ella… Miranda que es perfecta.";
         textBoxUI.GetComponent<TMPro.TMP_Text>().text = textToSpeak;
         currentTextLength = textToSpeak.Length;
         TextCreator.runTextPrint = true;
@@ -156,10 +158,10 @@ public class Scene01Events : MonoBehaviour
     {
         //Event 1
         nextButton.SetActive(false);
-        
+       
         
         charName.GetComponent<TMPro.TMP_Text>().text = "Juanito Chafa";
-        textToSpeak = "Y yo que sigo utilizando los cubrebocas fuera de casa, aunque ya no se necesitan";
+        textToSpeak = "Y yo que sigo utilizando los cubrebocas fuera de casa, aunque ya no se necesitan.";
         textBoxUI.GetComponent<TMPro.TMP_Text>().text = textToSpeak;
         currentTextLength = textToSpeak.Length;
         TextCreator.runTextPrint = true;
@@ -178,7 +180,9 @@ public class Scene01Events : MonoBehaviour
         //Event 1
         nextButton.SetActive(false);
 
-
+        charMC.SetActive(false);
+        charMC_Berrinche.SetActive(true);
+        cristian.SetActive(true);
         charName.GetComponent<TMPro.TMP_Text>().text = "Juanito Chafa";
         textToSpeak = "Ah, pero no fuera el señor mentón de alto valor, día a día lo veo cambiando de mujeres, " +
             "una vez estaba de dos brazos con unas compañeras ¡¡Lo odio!!” ";
@@ -198,6 +202,9 @@ public class Scene01Events : MonoBehaviour
     {
         //Event 1
         nextButton.SetActive(false);
+        cristian.SetActive(false);
+        charMC_Berrinche.SetActive(false);
+        charMC.SetActive(true);
         charName.GetComponent<TMPro.TMP_Text>().text = " ";
         textToSpeak = "Estaba por enviar otro audio a su amigo con quien había estado charlando en " +
             "InstaCheve cuando desplazándose encontró un anuncio de lo más extraño. “Invocaciones a domicilio”, " +

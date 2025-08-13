@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro; // importante para TextMeshPro
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public RawImage targetImage;
     public TMP_Text timerText;      // Ahora es TMP_Text
     public TMP_Text resultText;     // Ahora es TMP_Text
+    public string winSceneName = "Win"; // Nombre de la escena al ganar
+    public string loseSceneName = "Lose"; // Nombre de la escena al perder
 
     [Header("Gameplay")]
     public List<ClickableObject> objectsToFind; // Los 8 objetos
@@ -122,6 +125,17 @@ public class GameManager : MonoBehaviour
     {
         gameActive = false;
         targetImage.enabled = false;
-        resultText.text = win ? "¡Ganaste!" : "Perdiste";
+        // resultText.text = win ? "¡Ganaste!" : "Perdiste";
+        StartCoroutine(ChangeSceneAfterDelay(win));
+    }
+
+    System.Collections.IEnumerator ChangeSceneAfterDelay(bool win)
+    {
+        yield return new WaitForSeconds(0.2f); // tiempo para mostrar mensaje
+        if (win)
+            SceneManager.LoadScene(winSceneName);
+        else
+            SceneManager.LoadScene(loseSceneName);
     }
 }
+

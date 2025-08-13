@@ -1316,7 +1316,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 508c99c5008a3bf4bab581799e714b6a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.436
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1933,6 +1933,8 @@ MonoBehaviour:
   targetImage: {fileID: 30369380}
   timerText: {fileID: 767415969}
   resultText: {fileID: 1238377991}
+  winSceneName: Win
+  loseSceneName: Lose
   objectsToFind:
   - {fileID: 389398414}
   - {fileID: 1440378904}
