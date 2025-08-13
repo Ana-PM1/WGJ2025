@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Scene01Events : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Scene01Events : MonoBehaviour
     public GameObject fadeScreenOut;
     public GameObject BGCuarto;
     public GameObject BGChululuInvocacion;
+    public GameObject charMCDark;
     public GameObject charMC;
     public GameObject chululu;
     public GameObject textBoxUI;
@@ -30,10 +32,10 @@ public class Scene01Events : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(EventStarter());
+        StartCoroutine(EventOne());
     }
 
-    public IEnumerator EventStarter()
+    /*public IEnumerator EventStarter()
     {
         //Event 0
         fadeScreenIn.SetActive(false);
@@ -58,26 +60,9 @@ public class Scene01Events : MonoBehaviour
         // fadeScreenOut.SetActive(true);
         eventPos = 50;
 
-    }
+    }*/
 
-    public IEnumerator Transicion1()
-    {
-        //Event 0
-        fadeScreenOut.SetActive(true);
-       
-        yield return new WaitForSeconds(2);
-        fadeScreenOut.SetActive(false);
-        BGCuarto.SetActive(true);
-        yield return new WaitForSeconds(.02f);
-        textToSpeak = " ";
-
-
-        yield return new WaitForSeconds(2);
-        fadeScreenIn.SetActive(true);
-        eventPos = 1;
-
-    }
-
+    
     public IEnumerator EventOne()
     {
         //Event 0
@@ -88,7 +73,7 @@ public class Scene01Events : MonoBehaviour
         BGCuarto.SetActive(true);
         yield return new WaitForSeconds(.02f);
       
-        charMC.SetActive(true);
+        charMCDark.SetActive(true);
         yield return new WaitForSeconds(2);
         textBoxUI.SetActive(true);
         mainTextObject.SetActive(true);
@@ -133,8 +118,10 @@ public class Scene01Events : MonoBehaviour
     {
         //Event 1
         nextButton.SetActive(false);
-       
-       // BGMChululu.SetActive(true);
+
+        // BGMChululu.SetActive(true);
+        charMCDark.SetActive(false);
+        charMC.SetActive(true);
         charName.GetComponent<TMPro.TMP_Text>().text = "Juanito Chafa";
         textToSpeak = "Nunca podré salir con ella… Miranda que es perfecta";
         textBoxUI.GetComponent<TMPro.TMP_Text>().text = textToSpeak;
@@ -348,10 +335,10 @@ public class Scene01Events : MonoBehaviour
 
     public void NextButton() 
     {
-        if (eventPos == 50)
+        /*if (eventPos == 50)
         {
             StartCoroutine(Transicion1());
-        }
+        }*/
 
         if (eventPos == 1)
         {
@@ -416,6 +403,11 @@ public class Scene01Events : MonoBehaviour
         if (eventPos == 13)
         {
             StartCoroutine(EventThirteen());
+        }
+
+        if (eventPos == 14)
+        {
+            SceneManager.LoadSceneAsync("Scene02");
         }
     }
 
